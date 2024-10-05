@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:weather/weather.dart';
 import 'package:weather_app/bloc/weather_bloc.dart';
 import 'package:weather_app/bloc/weather_state.dart';
 
@@ -20,39 +19,39 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
+        padding: const EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(29, -0.3),
+                alignment: const AlignmentDirectional(29, -0.3),
                 child: Container(
                   width: 300,
                   height: 300,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.deepPurple,
                   ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-29, -0.3),
+                alignment: const AlignmentDirectional(-29, -0.3),
                 child: Container(
                   width: 300,
                   height: 300,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.deepPurple,
                   ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0, -1.2),
+                alignment: const AlignmentDirectional(0, -1.2),
                 child: Container(
                   width: 600,
                   height: 300,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFFFAB40),
                   ),
                 ),
@@ -60,7 +59,7 @@ class HomeScreen extends StatelessWidget {
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.transparent),
+                  decoration: const BoxDecoration(color: Colors.transparent),
                 ),
               ),
               BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
@@ -73,15 +72,15 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           state.weather.areaName!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
-                        Text(
+                        const Text(
                           'Good Morning',
                           style: TextStyle(
                             fontSize: 25,
@@ -93,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                         Center(
                           child: Text(
                             '${state.weather.temperature!.celsius!.round()}\u00B0C',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 55,
                                 fontWeight: FontWeight.w500),
@@ -102,14 +101,14 @@ class HomeScreen extends StatelessWidget {
                         Center(
                           child: Text(
                             state.weather.weatherDescription!.toUpperCase(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 25,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Center(
@@ -117,14 +116,14 @@ class HomeScreen extends StatelessWidget {
                             DateFormat('EEEE dd -')
                                 .add_jm()
                                 .format(state.weather.date!),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Row(
@@ -136,12 +135,12 @@ class HomeScreen extends StatelessWidget {
                                   'images/11.png',
                                   scale: 8,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Column(
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Sunrise',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w300,
@@ -152,7 +151,7 @@ class HomeScreen extends StatelessWidget {
                                       DateFormat()
                                           .add_jm()
                                           .format(state.weather.sunrise!),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -167,12 +166,12 @@ class HomeScreen extends StatelessWidget {
                                   'images/12.png',
                                   scale: 8,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Column(
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Sunset',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w300,
@@ -183,7 +182,7 @@ class HomeScreen extends StatelessWidget {
                                       DateFormat()
                                           .add_jm()
                                           .format(state.weather.sunrise!),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -194,7 +193,7 @@ class HomeScreen extends StatelessWidget {
                             )
                           ],
                         ),
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.symmetric(vertical: 5.0),
                           child: Divider(
                             color: Colors.grey,
@@ -209,12 +208,12 @@ class HomeScreen extends StatelessWidget {
                                   'images/13.png',
                                   scale: 8,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Column(
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Temp max',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w300,
@@ -223,7 +222,7 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                     Text(
                                       '${state.weather.tempMax!.celsius!.round()}\u00B0C',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -238,12 +237,12 @@ class HomeScreen extends StatelessWidget {
                                   'images/14.png',
                                   scale: 8,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Column(
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Temp Min',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w300,
@@ -252,7 +251,7 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                     Text(
                                       '${state.weather.tempMin!.celsius!.round()}\u00B0C',
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -266,12 +265,12 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   );
-                } else {
-                  return Container(
-                    child: Center(
-                      child: Text('something went wrong'),
-                    ),
+                } else if (state is WeatherFailureState) {
+                  return const Center(
+                    child: Text('something went wrong'),
                   );
+                } else {
+                  return Container();
                 }
               })
             ],
@@ -289,13 +288,13 @@ int rightIcon(int conditionCode) {
     return 2;
   } else if (conditionCode >= 500 && conditionCode < 600) {
     return 3;
-  }else if (conditionCode >= 600 && conditionCode < 700) {
+  } else if (conditionCode >= 600 && conditionCode < 700) {
     return 4;
-  }else if (conditionCode >= 700 && conditionCode < 800) {
+  } else if (conditionCode >= 700 && conditionCode < 800) {
     return 5;
-  }else if (conditionCode == 800) {
+  } else if (conditionCode == 800) {
     return 6;
-  }else {
+  } else {
     return 7;
   }
 }
