@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
                   const Text('please allow location access'),
                   ElevatedButton(
                       onPressed: () {
-                        print('hello');
                         _determinePosition();
                       },
                       child: const Text('Reload'))
