@@ -19,14 +19,29 @@ class MyApp extends StatelessWidget {
       home: FutureBuilder(
         future: _determinePosition(),
         builder: (context, snap) {
-          if (snap.hasData) {
+          if (snap.hasError) {
+            return Scaffold(
+              body: Column(
+                children: [
+                  const Text('please allow location access'),
+                  ElevatedButton(
+                      onPressed: () {
+                        print('hello');
+                        _determinePosition();
+                      },
+                      child: const Text('Reload'))
+                ],
+              ),
+            );
+          } else if (snap.hasData) {
             return BlocProvider<WeatherBloc>(
               create: (context) =>
                   WeatherBloc()..add(FetchWeather(snap.data as Position)),
               child: const HomeScreen(),
             );
           } else {
-            return Container(child: const Center(child: CircularProgressIndicator()));
+            return Container(
+                child: const Center(child: CircularProgressIndicator()));
           }
         },
       ),
